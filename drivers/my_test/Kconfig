@@ -1,0 +1,22 @@
+config SLUB_TEST
+	tristate "SLUB allocator corruption test"
+	depends on SLUB
+	help
+	  Build a test module that deliberately writes past the end of a
+	  kmalloc allocation so that SLUB debugging can detect the corruption.
+
+	  This driver intentionally corrupts kernel memory.  It must only be
+	  loaded in a disposable test virtual machine.  Choose M to build
+	  drivers/my_test/slub_test.ko.
+
+config OOPS_TEST
+	tristate "OOPS test"
+    default m
+	help
+	  drivers/my_test/OOPS_test.ko.
+
+config MY_TEST
+	tristate "OOPS test"
+    default y
+	help
+	  drivers/my_test/OOPS_test.ko.
